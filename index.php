@@ -14,6 +14,14 @@
 // Include database class
 include "tmClass.php";
 
+// Initialise variables
+$connectstr_dbhost = '';
+$connectstr_dbname = '';
+$connectstr_dbusername = '';
+$connectstr_dbpassword = '';
+$connectstr_charset = 'utf8';
+global $link_pdo;               // used in functions
+
 //mysql connection voodoo
 foreach ($_SERVER as $key => $value){
     if (strpos($key, "MYSQLCONNSTR_localdb") !== 0){
