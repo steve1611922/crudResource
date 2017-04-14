@@ -55,7 +55,7 @@
                     echo "<td>".$mobile."</td>";
                     echo "<td>".$address."</td>";
                     echo "<td><button class='btn'><a href='update.php?id=".$id."'".">Edit</a></button>";
-                    echo "<button class='btn'><a href='show.php?del_id=".$id."'".">Delete</a></button></td>";
+                    echo "<button class='btn'><a href='show.php?del_id=".$id."'".">   Delete</a></button></td>";
                     echo "</tr>";
 // show;
                 }
