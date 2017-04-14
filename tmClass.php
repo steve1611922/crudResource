@@ -35,10 +35,6 @@ class Database
         $this->stmt = $this->dbh->prepare($query);
     }
 
-    public function bindValue($param, $value, $type)
-    {
-        $this->bindparam($param,$value, $type);
-    }
     public function bind($param, $value, $type = null)
     {
         if (is_null($type)) {
@@ -57,7 +53,6 @@ class Database
             }
         }
         $this->stmt->bindValue($param, $value, $type);
-        $result->bindparam(":c_owner", $rowner);
     }
 
     public function execute()
