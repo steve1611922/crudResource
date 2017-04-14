@@ -60,7 +60,7 @@ echo $database->lastInsertId();             // the id just inserted
 
 // get a single row
 $database->query('SELECT FName, LName, Age, Gender FROM mytable WHERE FName = :fname');
-$database->bind(':fname', 'Jenny');
+$database->bind(':fname', 'John');
 $row = $database->single();
 // print the row
 echo "<pre>";
