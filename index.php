@@ -3,7 +3,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Edit Data</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 </head>
 
 <body>
@@ -30,6 +29,8 @@ foreach ($_SERVER as $key => $value) {
     define("DB_USER", $connectstr_dbusername);
     define("DB_PASS", $connectstr_dbpassword);
     define("DB_NAME", $connectstr_dbname);
+
+echo DB_HOST;
 
     // Instantiate database.
     $database = new Database();
