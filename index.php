@@ -46,7 +46,6 @@ echo "db:".DB_NAME."<br>";
 
 // Instantiate database
 $database = new Database();
-echo $database;
 
 //insert query
 $database->query('INSERT INTO mytable (FName, LName, Age, Gender) VALUES (:fname, :lname, :age, :gender)');
