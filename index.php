@@ -50,6 +50,7 @@ $database->bind(':fname', 'Jenny');
 $row = $database->single();
 // print the row
 echo "<pre>";
+echo "A single row";
 print_r($row);
 echo "</pre>";
 
@@ -59,6 +60,7 @@ $database->bind(':lname', 'Smith');
 $rows = $database->resultset();
 //print the rows
 echo "<pre>";
+echo "a set of rows";
 print_r($rows);
 echo "</pre>";
 ?>
