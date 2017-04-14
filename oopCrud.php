@@ -16,7 +16,6 @@ foreach ($_SERVER as $key => $value){
     $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
     $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 }
-
 // Define configuration
 define("DB_HOST", $connectstr_dbhost);
 define("DB_USER", $connectstr_dbusername);
@@ -28,11 +27,6 @@ class oopCrud{
     private $user = DB_USER;
     private $pass = DB_PASS;
     private $db = DB_NAME;
-    
-/*  private $host="localhost";
-    private $user="root";
-    private $db="primax";
-    private $pass="";          */
     private $conn;
 
     public function __construct(){
@@ -62,9 +56,7 @@ class oopCrud{
 
     public function update($id,$name,$email,$mobile,$address,$table){
 
-        $sql = "UPDATE $table
- SET name=:name,email=:email,mobile=:mobile,address=:address
- WHERE id=:id";
+        $sql = "UPDATE $table SET name=:name,email=:email,mobile=:mobile,address=:address WHERE id=:id";
         $q = $this->conn->prepare($sql);
         $q->execute(array(':id'=>$id,':name'=>$name,
             ':email'=>$email,':mobile'=>$mobile,':address'=>$address));
