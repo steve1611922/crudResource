@@ -10,27 +10,25 @@
 
 <?php
 
+    include_once("oopCrud.php");
+    $obj=new oopCrud;
 
-function __autoload($class){
-    include_once($class.".php");
-}
-$obj=new oopCrud;
-
-if(isset($_REQUEST['status'])){
-    echo"Your Data Successfully Updated";
-}
-
-if(isset($_REQUEST['status_insert'])){
-    echo"Your Data Successfully Inserted";
-}
-
-if(isset($_REQUEST['del_id'])){
-    if($obj->deleteData($_REQUEST['del_id'],"students")){
-
-        echo"Your Data Successfully Deleted";
+    if(isset($_REQUEST['status'])){
+        echo"Your Data Successfully Updated";
     }
-}
+
+    if(isset($_REQUEST['status_insert'])){
+        echo"Your Data Successfully Inserted";
+    }
+
+    if(isset($_REQUEST['del_id'])){
+        if($obj->deleteData($_REQUEST['del_id'],"students")){
+
+            echo"Your Data Successfully Deleted";
+        }
+    }
 ?>
+
 <div class="container">
     <div class="btn-group">
         <button class="btn"><a href="show.php">Home</a></button>
@@ -57,7 +55,6 @@ if(isset($_REQUEST['del_id'])){
  <td><button class="btn"><a href="update.php?id=$id">Edit</a>
 </button>&nbsp;&nbsp;<button class="btn"><a href="show.php?del_id=$id">Delete</a></button></td>
  </tr>
-show;
         }
         ?>
         <tr class="success">
