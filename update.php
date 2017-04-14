@@ -24,7 +24,7 @@ if(isset($_REQUEST['update'])){
 }
 
 extract($obj->getById($_REQUEST['id'],"students"));
-echo <<<show
+echo <<<shower
 <div class="container">
  <div class="btn-group">
  <button class="btn"><a href="show.php">Home</a></button>
@@ -59,6 +59,6 @@ echo <<<show
  </table>
  </form>
 </div>
-show;
+shower;
 ?>
 </html>
