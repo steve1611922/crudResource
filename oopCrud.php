@@ -9,15 +9,15 @@ class oopCrud{
     private $pass="";
     private $conn;
 
-    public function __construct($link){
+    public function __construct(){
 
-        //$this->conn = new PDO("mysql:host=".$this->host.";dbname=".$this->db,$this->user,$this->pass);
+        $this->conn = new PDO("mysql:host=".$this->host.";dbname=".$this->db,$this->user,$this->pass);
     }
 
     public function showData($table){
 
         $sql="SELECT * FROM $table";
-        $q = $this->$link->query($sql) or die("failed!");
+        $q = $this->conn->query($sql) or die("failed!");
 
         while($r = $q->fetch(PDO::FETCH_ASSOC)){
             $data[]=$r;
