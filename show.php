@@ -18,7 +18,6 @@ if(isset($_REQUEST['status'])){
     echo"Your Data Successfully Updated";
 }
 
-
 if(isset($_REQUEST['status_insert'])){
     echo"Your Data Successfully Inserted";
 }
