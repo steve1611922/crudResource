@@ -48,7 +48,6 @@
             foreach($obj->showData("students") as $value)
                 {
                     extract($value);
-                    // echo <<<show
                     echo "<tr class='success'>";
                     echo "<td>".$name."</td>";
                     echo "<td>".$email."</td>";
@@ -57,7 +56,6 @@
                     echo "<td><button class='btn'><a href='update.php?id=".$id."'".">Edit</a></button>";
                     echo "<button class='btn'><a href='show.php?del_id=".$id."'".">   Delete</a></button></td>";
                     echo "</tr>";
-// show;
                 }
         ?>
         <tr class="success">
