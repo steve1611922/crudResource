@@ -72,4 +72,5 @@ foreach ($_SERVER as $key => $value){
 ?>
 
 </body>
+<footer>Time:17:19</footer>
 </html>
