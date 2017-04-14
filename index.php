@@ -1,3 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Edit Data</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+
+<body>
+
+<p>Some text</p>
+
 <?php
     // Include database class
     include "tmClass.php";
@@ -18,7 +30,7 @@ foreach ($_SERVER as $key => $value) {
     define("DB_USER", $connectstr_dbusername);
     define("DB_PASS", $connectstr_dbpassword);
     define("DB_NAME", $connectstr_dbname);
-    
+
     // Instantiate database.
     $database = new Database();
 //insert query
@@ -49,5 +61,7 @@ $rows = $database->resultset();
 echo "<pre>";
 print_r($rows);
 echo "</pre>";
-
 ?>
+
+</body>
+</html>
