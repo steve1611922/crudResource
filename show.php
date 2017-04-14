@@ -55,6 +55,7 @@
  <td><button class="btn"><a href="update.php?id=$id">Edit</a>
 </button>&nbsp;&nbsp;<button class="btn"><a href="show.php?del_id=$id">Delete</a></button></td>
  </tr>
+show;
         }
         ?>
         <tr class="success">
