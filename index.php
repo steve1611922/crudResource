@@ -31,6 +31,9 @@ foreach ($_SERVER as $key => $value) {
     define("DB_NAME", $connectstr_dbname);
 
 echo DB_HOST;
+echo DB_USER;
+echo DB_PASS;
+echo DB_NAME;
 
     // Instantiate database.
     $database = new Database();
