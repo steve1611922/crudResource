@@ -2,7 +2,6 @@
 
 class oopCrud{
     
-    
     private $host="localhost";
     private $user="root";
     private $db="primax";
