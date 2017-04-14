@@ -39,9 +39,9 @@ define("DB_USER", $connectstr_dbusername);
 define("DB_PASS", $connectstr_dbpassword);
 define("DB_NAME", $connectstr_dbname);
 
-echo DB_HOST;
-echo DB_USER;
-echo DB_PASS;
+echo DB_HOST."<br>";
+echo DB_USER."<br>";
+echo DB_PASS."<br>";
 echo DB_NAME."<br>";
 
 // Instantiate database
