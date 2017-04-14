@@ -1,11 +1,38 @@
 <?php
+// Initialise variables
+$connectstr_dbhost = '';
+$connectstr_dbname = '';
+$connectstr_dbusername = '';
+$connectstr_dbpassword = '';
+$connectstr_charset = 'utf8';
 
+//mysql connection voodoo
+foreach ($_SERVER as $key => $value){
+    if (strpos($key, "MYSQLCONNSTR_localdb") !== 0){
+        continue;
+    }
+    $connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
+    $connectstr_dbname = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
+    $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
+    $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
+}
+
+// Define configuration
+define("DB_HOST", $connectstr_dbhost);
+define("DB_USER", $connectstr_dbusername);
+define("DB_PASS", $connectstr_dbpassword);
+define("DB_NAME", $connectstr_dbname);
 class oopCrud{
+
+    private $host = DB_HOST;
+    private $user = DB_USER;
+    private $pass = DB_PASS;
+    private $db = DB_NAME;
     
-    private $host="localhost";
+/*  private $host="localhost";
     private $user="root";
     private $db="primax";
-    private $pass="";
+    private $pass="";          */
     private $conn;
 
     public function __construct(){
