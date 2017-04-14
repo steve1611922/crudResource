@@ -7,7 +7,6 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
 </head>
 
-
 <?php
 
 function __autoload($class){
