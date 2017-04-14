@@ -44,19 +44,19 @@
             <th scope="col">Action</th>
         </tr>
         <?php
-        foreach($obj->showData("students") as $value){
-            extract($value);
-            echo <<<show
- <tr class="success">
- <td>$name</td>
- <td>$email</td>
- <td>$mobile</td>
- <td>$address</td>
- <td><button class="btn"><a href="update.php?id=$id">Edit</a>
-</button>&nbsp;&nbsp;<button class="btn"><a href="show.php?del_id=$id">Delete</a></button></td>
- </tr>
+            foreach($obj->showData("students") as $value){
+                extract($value);
+                echo <<<show
+                <tr class="success">
+                <td>$name</td>
+                <td>$email</td>
+                <td>$mobile</td>
+                <td>$address</td>
+                <td><button class="btn"><a href="update.php?id=$id">Edit</a>
+                </button>&nbsp;&nbsp;<button class="btn"><a href="show.php?del_id=$id">Delete</a></button></td>
+                </tr>
 show;
-        }
+                }
         ?>
         <tr class="success">
             <th scope="col" colspan="5" align="right">
