@@ -1,39 +1,46 @@
 <?php
 
-class Database{
-    private $host      = DB_HOST;
-    private $user      = DB_USER;
-    private $pass      = DB_PASS;
-    private $dbname    = DB_NAME;
-
+class Database
+{
+    private $host = DB_HOST;
+    private $user = DB_USER;
+    private $pass = DB_PASS;
+    private $dbname = DB_NAME;
     private $dbh;
     private $error;
-
     private $stmt;
 
-    public function __construct(){
+    public function __construct()
+    {
         // Set DSN
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
         // Set options
         $options = array(
-            PDO::ATTR_PERSISTENT    => true,
-            PDO::ATTR_ERRMODE       => PDO::ERRMODE_EXCEPTION
+            PDO::ATTR_PERSISTENT => true,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false
         );
         // Create a new PDO instanace
-        try{
+        try {
             $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
-        }
-            // Catch any errors
-        catch(PDOException $e){
+        } // Catch any errors
+        catch (PDOException $e) {
             $this->error = $e->getMessage();
         }
     }
 
-    public function query($query){
+    public function query($query)
+    {
         $this->stmt = $this->dbh->prepare($query);
     }
 
-    public function bind($param, $value, $type = null){
+    public function bindValue($param, $value, $type)
+    {
+        $this->bindparam($param,$value, $type);
+    }
+    public function bind($param, $value, $type = null)
+    {
         if (is_null($type)) {
             switch (true) {
                 case is_int($value):
@@ -50,30 +57,34 @@ class Database{
             }
         }
         $this->stmt->bindValue($param, $value, $type);
+        $result->bindparam(":c_owner", $rowner);
     }
 
-    public function execute(){
+    public function execute()
+    {
         return $this->stmt->execute();
     }
 
-    public function resultset(){
+    public function resultset()
+    {
         $this->execute();
         return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function single(){
+    public function single()
+    {
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function rowCount(){
+    public function rowCount()
+    {
         return $this->stmt->rowCount();
     }
 
-    public function lastInsertId(){
+    public function lastInsertId()
+    {
         return $this->dbh->lastInsertId();
     }
-
 }
-
 ?>
